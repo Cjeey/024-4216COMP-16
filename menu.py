@@ -2,7 +2,8 @@
 import ayoub_visualisation as ayoub_visualisation
 import youness_visualisation as youness_visualisation
 import mohamed_visualisation as mohamed_visualisation
-
+import yamin_visualisation as yamin_visuallisation
+import ali_visualisation as ali_visuallisation
 
 
 print('------------The Option-------------')
