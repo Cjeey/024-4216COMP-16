@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+def Ya_visualisation():
 db = pd.read_csv('world-data-2023.csv')
 db['Agricultural Land( %)'] = db['Agricultural Land( %)'].str.replace('%', '').str.replace('.', '').astype(float)
 db['Land Area(Km2)'] = db['Land Area(Km2)'].str.replace(',', '').astype(float)
