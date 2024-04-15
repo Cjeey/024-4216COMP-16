@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read data from CSV
+df = pd.read_csv('world-data-2023.csv')
+df['Co2-Emissions'] = df['Co2-Emissions'].replace('[\$,]', '', regex=True).astype(float)
+df['Population'] = df['Population'].replace('[\$,]', '', regex=True).astype(float)
+
+# Create a subplot layout
+fig, axs = plt.subplots(3, figsize=(10, 15))
+
+# Get the 5 countries with the highest CO2 Emissions and plot
+top_co2 = df.nlargest(5, 'Co2-Emissions')
+colors = ['blue', 'green', 'red', 'purple', 'orange']
+bars_co2 = axs[2].bar(top_co2['Country'], top_co2['Co2-Emissions'], color=colors, alpha=0.7)
+axs[2].set_title('5 Countries with the highest CO2 Emissions')
+axs[2].set_xlabel('Country')
+axs[2].set_ylabel('CO2 Emissions (in tons)')
+axs[2].legend(bars_co2, top_co2['Country'])
+axs[2].grid(True)
+
+plt.tight_layout()
+plt.show()  # This will display the plot
