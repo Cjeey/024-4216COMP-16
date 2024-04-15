@@ -1,0 +1,22 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read data from CSV
+df = pd.read_csv('world-data-2023.csv')
+
+# Clean 'Co2-Emissions' and 'Population' columns
+# Remove commas and convert to float
+df['Co2-Emissions'] = df['Co2-Emissions'].replace('[\$,]', '', regex=True).astype(float)
+df['Population'] = df['Population'].replace('[\$,]', '', regex=True).astype(float)
+
+# Create a subplot layout
+fig, axs = plt.subplots(3, figsize=(10, 15))
+
+# Plot the correlation between CO2 Emissions and Population
+axs[0].scatter(df["Co2-Emissions"], df['Population'], alpha=0.6, edgecolors='w', color='blue')
+axs[0].set_title('Correlation between CO2 Emissions and Population')
+axs[0].set_xlabel('CO2 Emissions (in tons)')
+axs[0].set_ylabel('Population')
+axs[0].grid(True)
+
+plt.show()  # This will display the plot
