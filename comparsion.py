@@ -12,6 +12,7 @@ plt.scatter(db["Land Area(Km2)"], db['Agricultural Land( %)'], color = 'blue')
 plt.title('Correlation between land area and Co2-Emissions')
 plt.xlabel('Land area')
 plt.ylabel('Agricultural land')
+
 plt.show()
 
 plt.figure(1, figsize = (10, 5))
@@ -26,10 +27,11 @@ plt.show()
 
 plt.figure(1, figsize = (10, 5))
 plt.bar(top_la['Country'], top_la['Land Area(Km2)'], color = 'blue')
-plt.legend(plt.bar(top_la['Country'], top_la[')'], color = 'blue'), top_la['Country'])
+plt.legend(plt.bar(top_la['Country'], top_la['Land Area(Km2)'], color = 'blue'), top_la['Country'])
 
 plt.title('Countries with the largest land area (km2)')
 plt.ylabel('Land area')
 plt.xlabel('Countries')
 
+plt.tight_layout()
 plt.show()
