@@ -2,35 +2,34 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def Ya_visualisation():
-db = pd.read_csv('world-data-2023.csv')
-db['Agricultural Land( %)'] = db['Agricultural Land( %)'].str.replace('%', '').str.replace('.', '').astype(float)
-db['Land Area(Km2)'] = db['Land Area(Km2)'].str.replace(',', '').astype(float)
-top_al = db.sort_values('Agricultural Land( %)', ascending = False).head(5)
-top_la = db.sort_values('Land Area(Km2)', ascending = False).head(5)
+    df = pd.read_csv('world-data-2023.csv')
+    df['Agricultural Land( %)'] = df['Agricultural Land( %)'].str.replace('%', '').astype(float)
+    df['Land Area(Km2)'] = df['Land Area(Km2)'].str.replace(',', '').astype(float)
+    
+    top_al = df.sort_values('Agricultural Land( %)', ascending=False).head(5)
+    top_la = df.sort_values('Land Area(Km2)', ascending=False).head(5)
 
-plt.figure(1, figsize=(10, 5))
-plt.scatter(db["Land Area(Km2)"], db['Agricultural Land( %)'], color = 'blue')
-plt.title('Correlation between land area and Co2-Emissions')
-plt.xlabel('Land area')
-plt.ylabel('Agricultural land')
-plt.show()
+    plt.figure(figsize=(10, 5))
+    plt.scatter(df["Land Area(Km2)"], df['Agricultural Land( %)'], color='blue')
+    plt.title('Correlation between land area and Agricultural Land')
+    plt.xlabel('Land area (Km²)')
+    plt.ylabel('Agricultural land (%)')
+    plt.show()
 
-plt.figure(1, figsize = (10, 5))
-plt.bar(top_al['Country'], top_al['Agricultural Land( %)'], color = 'blue')
-plt.legend(plt.bar(top_al['Country'], top_al['Agricultural Land( %)'], color = 'blue'), top_al['Country'])
+    plt.figure(figsize=(10, 5))
+    bars_al = plt.bar(top_al['Country'], top_al['Agricultural Land( %)'], color='blue')
+    plt.legend(bars_al, top_al['Country'])
+    plt.title('Countries with the largest agricultural land percentage')
+    plt.xlabel('Countries')
+    plt.ylabel('Agricultural land (%)')
+    plt.show()
 
-plt.title('Countries with the largest argicultural land percentage')
-plt.ylabel('Agricultural land')
-plt.xlabel('Countries')
+    plt.figure(figsize=(10, 5))
+    bars_la = plt.bar(top_la['Country'], top_la['Land Area(Km2)'], color='blue')
+    plt.legend(bars_la, top_la['Country'])
+    plt.title('Countries with the largest land area (km²)')
+    plt.xlabel('Countries')
+    plt.ylabel('Land area (km²)')
+    plt.show()
 
-plt.show()
 
-plt.figure(1, figsize = (10, 5))
-plt.bar(top_la['Country'], top_la['Land Area(Km2)'], color = 'blue')
-plt.legend(plt.bar(top_la['Country'], top_la[')'], color = 'blue'), top_la['Country'])
-
-plt.title('Countries with the largest land area (km2)')
-plt.ylabel('Land area')
-plt.xlabel('Countries')
-
-plt.show()
