@@ -5,8 +5,8 @@ def Ay_visualisation():
     # Load the data
     df = pd.read_csv('world-data-2023.csv')
     # Remove the dollar sign and commas from the 'GDP' and 'Co2-Emissions' columns, and convert them to float
-    df['GDP'] = df['GDP'].str.replace(',', '').str.replace('$', '').astype(float)
-    df['Co2-Emissions'] = df['Co2-Emissions'].str.replace(',', '').str.replace('$', '').astype(float)
+    df['GDP'] = df['GDP'].str.replace(',', '',regex=False).str.replace('$', '',regex=False).astype(float)
+    df['Co2-Emissions'] = df['Co2-Emissions'].str.replace(',', '',regex=False).str.replace('$', '',regex=False).astype(float)
 
     # Plot the correlation between GDP and Co2-Emissions
     plt.figure(1, figsize=(10, 5))
