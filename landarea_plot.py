@@ -17,7 +17,7 @@ plt.figure(1, figsize = (10, 5))
 plt.bar(top_la['Country'], top_la['Land Area(Km2)'], color = 'blue')
 
 # Adding a legend to the plot with the names of the countries
-plt.legend(plt.bar(top_la['Country'], top_la['Land Area(Km2))'], color = 'blue'), top_la['Country'])
+plt.legend(plt.bar(top_la['Country'], top_la['Land Area(Km2)'], color = 'blue'), top_la['Country'])
 
 # Titling and labeling the data
 plt.title('Countries with the largest land area (km2)')
